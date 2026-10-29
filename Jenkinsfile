@@ -4,13 +4,13 @@ pipeline {
      stage('Build') {
         steps {
            echo 'Hello World'
-          writeFile file:'output.txt:' , text: 'Hello from jenkins'
+          sh 'echo "Hello from Jenkins" > output.txt'
         }
      }
   }
   post{
-    success{
-      archiveArtifacts artifacts: 'output.txt', fingerprint:true
+    always {
+      archiveArtifacts artifacts: 'output.txt', allowEmptyArchive: false
     }
   }
 }
