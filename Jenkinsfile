@@ -1,10 +1,10 @@
 pipeline {
   agent any 
   stages {
-     stage('Hello') {
+     stage('Build') {
         steps {
            echo 'Hello World'
-          writeFile file:'output.txt: , text: 'Hello from jenkins'
+          writeFile file:'output.txt:' , text: 'Hello from jenkins'
         }
      }
   }
